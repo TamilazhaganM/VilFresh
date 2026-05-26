@@ -3,8 +3,13 @@ import { FaLeaf, FaSeedling, FaTruck } from "react-icons/fa";
 
 import farmImage from "../Components/Images/farm.webp";
 import leafBg from "../Components/Images/leafbg.jpg";
-
+import { useNavigate } from "react-router-dom";
 const About = () => {
+   const navigate = useNavigate();
+   function handleorder(){
+    navigate('/Shopping')
+  }
+
   return (
     <section id="about"
       className="relative py-24 px-6 overflow-hidden bg-cover bg-center"
@@ -118,7 +123,7 @@ vegetables, substantially improving their livelihoods.
           </div>
 
           {/* Button */}
-          <button className="mt-10 bg-yellow-500 hover:bg-yellow-600 px-8 py-4 rounded-full text-lg font-semibold shadow-xl transition-all duration-300">
+          <button onClick={handleorder} className="mt-10 bg-yellow-500 hover:bg-yellow-600 px-8 py-4 rounded-full text-lg font-semibold shadow-xl transition-all duration-300">
             Explore More
           </button>
 

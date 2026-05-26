@@ -3,9 +3,22 @@ import logo from '../Components/Images/logo.png'
 import { FaBars, FaTimes, FaArrowCircleUp, FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa'
 import homeimage from '../Components/Images/home.png'
 import mangoimage from '../Components/Images/mangoimage.png'
+import { useNavigate } from 'react-router-dom'
+import Comingsoon from './Comingsoon'
 const Home = () => {
-
+  const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
+  function handleorder(){
+    navigate('/Shopping')
+  }
+ 
+  function handlehome() {
+  const homeSection = document.getElementById('home')
+  homeSection?.scrollIntoView({
+    behavior: 'smooth'
+  })
+}
+
 
   return (
     <div>
@@ -215,16 +228,14 @@ Healthy, juicy, and delivered with care</h4>
         
       </div>
       <div className='flex justify-around md:justify-center md:gap-10 md:relative  bottom-20'>
-       <button className='bg-yellow-500 relative bottom-70 md:bottom-25 hover:bg-amber-50 border p-3 rounded-2xl'>Order Now 🥭</button>
+       <button className='bg-yellow-500 relative bottom-70 md:bottom-25 hover:bg-amber-50 border p-3 rounded-2xl' onClick={handleorder}>Order Now 🥭</button>
        <a href="#contact"><button className='bg-white border relative bottom-70 md:bottom-25 border-yellow-500 hover:bg-yellow-500 p-3 rounded-2xl'>Connect with us</button></a>
 
       </div>
-<a
-  href="#home"
+<button onClick={handlehome}
   className='fixed bottom-6 right-6 z-50 bg-white border-4 border-amber-400 p-3 rounded-full shadow-xl hover:scale-110 transition-all duration-300'
->
-  <FaArrowCircleUp className='text-4xl text-green-800' />
-</a>  
+> <FaArrowCircleUp className='text-4xl text-green-800' /></button>
+  
     </div>
   )
 }
